@@ -1,0 +1,36 @@
+body{
+  min-height: 100vh;
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+.mic{
+  background:#717171;
+   margin-left:20px ;
+   height:38px;
+   width:38px;
+    border:1px solid grey;
+    border-radius:50%;
+}
+
+@media only screen and (max-width:1000px) {
+  .banner{
+    max-height: 250px;
+
+  }
+  .search-input{
+    display: none;
+  }
+  .mic{
+    margin-left: auto;
+  }
+}
+@media only screen and (max-width:760px){
+  .card{
+    margin-bottom: 20px;
+  }
+}
+.for-scroll::-webkit-scrollbar{
+  width: 2px;
+  background-color: grey;
+}
