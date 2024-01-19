@@ -20,8 +20,8 @@ const Videos = () => {
   })
   return (
     <Box className = 'container-fluid' width={'100%'}>
-      <Box className='row p-2'>
-        {allData.map(item => {
+      <Box className='row' >
+        { allData && allData.map(item => {
            return <OneVideo id = {item.id}  title = {item.title} imageUrl = {item.imageUrl} views = {item.views} daysOld = {item.daysOld} channelName = {item.channelName} />
            
         })}

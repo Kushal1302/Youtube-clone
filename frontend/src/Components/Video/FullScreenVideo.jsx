@@ -10,6 +10,15 @@ import verified from '../../assets/verified.png'
 const FullScreenVideo = () => {
     const { id } = useParams()
     const [videoData , setVideoData] = useState({})
+    const [Subscribe , setSubScribe] = useState(
+       {
+        
+        Subscribe:"Subscribe",
+        bgcolor:"red",
+        fontColor:"white"
+       }
+
+    )
     const [allData , setAllData] = useState([])
     useEffect(()=> {
        const ApiData = async () => {
@@ -41,7 +50,7 @@ const FullScreenVideo = () => {
                        <div>
                         <Typography style={{color:'black'}}>
                             {videoData.channelName} <img width={17} src={verified} alt="" />
-                            <button style={{borderRadius:20 , padding:'5px 10px' , marginLeft:10 , border:'none' , color:'grey'}}>Subscribe</button>
+                            <button onClick={() => setSubScribe(Subscribe.Subscribe === "Subscribe" ? {Subscribe : "Subscribed" , bgcolor:"" ,  fontColor:""} : {Subscribe : "Subscribe" , bgcolor:"red" , fontColor:"white"})} style={{backgroundColor:Subscribe.bgcolor , color: Subscribe.fontColor ,  borderRadius:20 , padding:'5px 10px' , marginLeft:10 , border:'none' , }}>{Subscribe.Subscribe}</button>
                         </Typography>
                        </div>
                     </div>

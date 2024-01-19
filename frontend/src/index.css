@@ -5,15 +5,17 @@ body{
   padding: 0;
 }
 .mic{
-  background:#717171;
-   margin-left:20px ;
-   height:38px;
-   width:38px;
+    background:#717171;
+    margin-left:20px ;
+    height:38px;
+    width:38px;
     border:1px solid grey;
     border-radius:50%;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
-@media only screen and (max-width:1000px) {
+@media  (max-width:1000px) {
   .banner{
     max-height: 250px;
 
@@ -25,7 +27,7 @@ body{
     margin-left: auto;
   }
 }
-@media only screen and (max-width:760px){
+@media  (max-width:760px){
   .card{
     margin-bottom: 20px;
   }
@@ -33,4 +35,11 @@ body{
 .for-scroll::-webkit-scrollbar{
   width: 2px;
   background-color: grey;
+}
+.list:hover{
+  background-color: grey;
+  cursor: pointer;
+}
+.mic:hover{
+  background-color: black;
 }
