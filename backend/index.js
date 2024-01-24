@@ -1,11 +1,15 @@
 const express = require('express')
+require('dotenv').config()
 const Video = require('./model/videoSchema')
 const Connection = require('./connect')
+
 
 const app = express()
 const cors = require('cors');
 app.use(cors());
-Connection()
+
+const MONGO_URL = process.env.MONGO_URL
+Connection(MONGO_URL)
 app.get('/videos/:id' , async (req , res) => {
         try {
             
@@ -28,5 +32,5 @@ app.get('/videos' , async (req , res) => {
         console.log(error)
     }
 })
-
-app.listen(8000 , () => console.log("Listening"))
+const PORT = process.env.PORT
+app.listen(PORT , () => console.log("Listening" , PORT))

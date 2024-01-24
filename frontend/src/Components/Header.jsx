@@ -9,11 +9,28 @@ import Search from './Search'
 import MicIcon from '@mui/icons-material/Mic';
 import Youtbe_Logo from '../assets/youtube_logo.svg'
 import { Link } from 'react-router-dom';
+
+import { signInWithPopup } from 'firebase/auth';
+import { auth, provider } from '../firebase';
+import { useState } from 'react';
 const micStyle = {
   
 }
 const Header = ({setOpen , open}) => {
-    
+    const [url , setURL] = useState('')
+    const signIn = async () => {
+      try {
+       const data = await  signInWithPopup(auth , provider)
+       if(data) {
+        setURL(data.user.photoURL)
+       }
+      } catch (error) {
+        
+      }
+    }
+    // if(!user){
+    //   return <div>Something went wrong</div>
+    // }
   return (
     <Box>
       <AppBar style={{background:'white'}}>
@@ -34,7 +51,10 @@ const Header = ({setOpen , open}) => {
             <Box className='ms-auto'>
                 <VideoCallOutlinedIcon style={{background:'#000' , marginRight:10 , borderRadius:'50%'  , cursor:'pointer'}}/>
                 <NotificationsActiveIcon  style={{background:'#000' , marginRight:10 , borderRadius:'50%' , cursor:'pointer'}}/>
-                <AccountCircleIcon style={{background:'#000' , marginRight:10 , borderRadius:'50%' , cursor:'pointer'}}/>
+                {
+                  url ? <img src={url}  alt='' width={30} style={{borderRadius:'50%'}}/> : <AccountCircleIcon onClick = {signIn} style={{background:'#000' , marginRight:10 , borderRadius:'50%' , cursor:'pointer'}}/>
+
+                }
             </Box>
         </Toolbar>
       </AppBar>

@@ -1,7 +1,7 @@
 const { default: mongoose } = require("mongoose")
 
-const Connection = async () => {
-    await mongoose.connect('mongodb://0.0.0.0:27017/youtube-clone')
+const Connection = async (MONGO_URL) => {
+    await mongoose.connect(MONGO_URL)
     .then(() => console.log("Connection Success"))
 }
 module.exports = Connection
